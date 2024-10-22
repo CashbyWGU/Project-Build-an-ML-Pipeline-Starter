@@ -1,12 +1,6 @@
-# Ignore Weights & Biases directories
 wandb/
 wandb_test
-
-# Ignore MLflow tracking files
 mlruns/
-
-# Ignore output files
 outputs/
-
-# Jupyter Notebook
 .ipynb_checkpoints
+multirun/
