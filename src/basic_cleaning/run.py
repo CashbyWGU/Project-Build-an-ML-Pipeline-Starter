@@ -52,7 +52,7 @@ def go(args):
 # TODO: In the code below, fill in a description for each argument. The description should be a string.
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser(description="A very basic data cleaning")
+    parser = argparse.ArgumentParser(description="Download raw dataset from W&B, clean it based on the specified price range, and export the cleaned dataset as an artifact.")
   
     parser.add_argument(
         "--input_artifact", 
@@ -60,6 +60,9 @@ if __name__ == "__main__":
         help = 'The input artifact containing the raw dataset.',
         required = True
     )
+    """
+    This is the reference for the dataset needing to be cleaned.
+    """
 
     parser.add_argument(
         "--output_artifact", 
@@ -67,13 +70,19 @@ if __name__ == "__main__":
         help = 'The name for the output artifact after cleaning.',
         required = True
     )
+    """
+    This is the reference that will be used to save the cleaned dataset.
+    """
 
     parser.add_argument(
         "--output_type", 
         type = str,
-        help = 'The type for the output artifact.',
+        help = 'The type for the output artifact, such as "csv."',
         required = True
     )
+    """
+    This defines the format of the cleaned dataset.
+    """
 
     parser.add_argument(
         "--output_description", 
@@ -81,6 +90,9 @@ if __name__ == "__main__":
         help = 'A description of the output artifact.',
         required = True
     )
+    """
+    This provides details about the cleaned dataset for future reference.
+    """
 
     parser.add_argument(
         "--min_price", 
@@ -88,6 +100,9 @@ if __name__ == "__main__":
         help = 'The minimum price to consider when cleaning data.',
         required = True
     )
+    """
+    Values below this threshold will be removed from the dataset.
+    """
 
     parser.add_argument(
         "--max_price",
@@ -95,7 +110,9 @@ if __name__ == "__main__":
         help = 'The maximum price to consider when cleaning data.',
         required = True
     )
-
+    """
+    Values above this threshold will be removed from the dataset.
+    """
 
     args = parser.parse_args()
 
